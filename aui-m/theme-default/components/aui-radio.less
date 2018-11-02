@@ -1,0 +1,98 @@
+@import '../var.less';
+@import './aui-cell.less';
+@import './aui-icon.less';
+@import '../base/mixin/text.less';
+@import '../base/mixin/text.less';
+.aui-check__label {
+  .setTapColor();
+  &:active {
+      background-color: #ECECEC;
+  }
+}
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+
+.aui-cell__bd{
+  flex: 1;
+}
+
+.aui-cell__ft {
+  text-align: right;
+  color: @TextColorGray;
+}
+.aui-cells_radio{
+  .aui-cell__ft {
+      padding-left: @cell-inner-gap-h;
+  }
+}
+.aui-check{
+  position: absolute;
+  left: -9999em;
+}
+.aui-label{
+  display:block;
+  width:@cell-label-width;
+  .text_wrap();
+}
+.aui-input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  -webkit-appearance: none;
+  background-color: transparent;
+  font-size: inherit;
+  color: inherit;
+  height: unit(@cell-line-height, em);
+  line-height: @cell-line-height;
+
+  // hides the spin-button
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
+      -webkit-appearance: none;
+      margin: 0;
+  }
+}
+.aui-check {
+  // radio
+  .aui-cells_radio & {
+      &:checked {
+          & + .aui-icon-checked {
+              &:before {
+                  display: block;
+                  content: '\EA08';
+                  color: @radio-checked-icon-color;
+                  font-size: 16px;
+              }
+          }
+      }
+  }
+}
+.aui-cell_radio>* {
+  pointer-events: none;
+}
+
+.aui-radio-icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.aui-radio-label {
+  vertical-align: middle;
+}
+.aui-cells_radio.aui-radio-disabled .aui-check:checked + .aui-icon-checked:before {
+  opacity: 0.5;
+}

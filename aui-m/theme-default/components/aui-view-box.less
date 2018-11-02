@@ -1,0 +1,64 @@
+@import '../var.less';
+@import '../base/mixin/mobile.less';
+@import '../base/mixin/setOnepx.less';
+.agree-aui-tab {
+    position: relative;
+    height: 100%;
+}
+
+.aui-tab__panel {
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 50px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.aui-tab__content{
+    display: none;
+}
+
+.aui-navbar {
+    display: flex;
+    position: absolute;
+    z-index: 500;
+    top: 0;
+    width: 100%;
+    background-color: #FAFAFA;
+
+    &:after {
+        .setBottomLine(#CCCCCC);
+    }
+
+    & + .aui-tab__panel {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
+}
+
+.aui-navbar__item {
+    position: relative;
+    display: block;
+    flex: 1;
+    padding: 13px 0;
+    text-align: center;
+    font-size: 15px;
+    .setTapColor();
+
+    &:active {
+        background-color: #EDEDED;
+    }
+
+    &.aui-bar__item_on {
+        background-color: #EAEAEA;
+    }
+
+    &:after {
+        .setRightLine(#CCCCCC);
+    }
+
+    &:last-child {
+        &:after {
+            display: none;
+        }
+    }
+}

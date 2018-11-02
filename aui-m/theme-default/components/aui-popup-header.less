@@ -1,0 +1,29 @@
+@import './common/1px.less';
+@import '../var.less';
+
+.aui-popup-header {
+  display: flex;
+  height: @popup-header-height;
+  line-height: @popup-header-height;
+  font-size: @popup-header-font-size;
+  background-color: @popup-header-bg-color;
+}
+
+.aui-popup-header-title {
+  flex: 1;
+  text-align: center;
+  color: @popup-header-title-text-color;
+}
+
+.aui-popup-header-left {
+  padding-left: @popup-header-left-text-padding;
+  color: @popup-header-left-text-color;
+}
+
+.aui-popup-header-right {
+  padding-right: @popup-header-right-text-padding;
+  color: @popup-header-right-text-color;
+}
+.aui-popup-header.aui-1px-b:after {
+  border-color: #D9D9D9;
+}

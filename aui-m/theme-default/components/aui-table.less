@@ -1,0 +1,76 @@
+@import './common/1px.less';
+@import '../var.less';
+@import '../base/mixin/setOnepx.less';
+.aui-table {
+  line-height: 40px;
+  position: relative;
+  width: 100%;
+  border-collapse: collapse;
+  
+  &:after {
+    .setTopLine();
+  }
+  th {
+    font-weight: 500
+  }
+}
+
+.aui-table.aui-table-bordered {
+  &:before {
+    .setLeftLine();
+  }
+}
+
+.aui-table td, .aui-table th {
+  border-bottom: 1px solid @table-table-td-th-border-bottom-color;
+  border-right: 1px solid @table-table-td-th-border-right-color;
+  text-align: center;
+}
+
+.aui-table td, .aui-table th {
+  position:relative;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.aui-table td, .aui-table th {
+  &:before {
+    .setBottomLine();
+  }
+}
+
+.aui-table.aui-table-no-content-bordered td {
+  &:before {
+    border-bottom-width: 0;
+  }
+}
+
+.aui-table.aui-table-no-content-bordered tr:last-child td {
+  &:before {
+    border-bottom-width: 1px;
+  }
+}
+
+.aui-table td, .aui-table th {
+  &:after {
+    .setRightLine();
+  }
+}
+
+.aui-table.aui-table-no-cell-bordered td, .aui-table.aui-table-no-cell-bordered th {
+  &:after {
+    border-right-width: 0;
+  }
+}
+
+.aui-table tr td:last-child, .aui-table tr th:last-child {
+  &:after {
+    border-right-width: 0;
+  }
+}
+
+.aui-table.aui-table-bordered tr td:last-child, .aui-table.aui-table-bordered tr th:last-child {
+  &:after {
+    border-right-width: 1px;
+  }
+}

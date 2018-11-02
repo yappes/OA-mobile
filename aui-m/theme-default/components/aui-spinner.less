@@ -1,0 +1,41 @@
+@import '../var.less';
+.aui-spinner {
+  stroke: @spinner-stroke;
+  fill: @spinner-fill;
+  vertical-align: middle;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+}
+
+.aui-spinner svg {
+  width: 28px;
+  height: 28px;
+}
+
+.aui-spinner.aui-spinner-inverse {
+  stroke: @spinner-inverse-stroke;
+  fill: @spinner-inverse-fill;
+}
+
+.aui-spinner-android {
+  stroke: @spinner-android-stroke;
+}
+
+.aui-spinner-ios,
+.aui-spinner-ios-small {
+  stroke: @spinner-ios-small-stroke;
+}
+
+.aui-spinner-spiral .stop1 {
+  stop-color: @spinner-spiral-stop1-stop-color;
+  stop-opacity: 0;
+}
+
+.aui-spinner-spiral.aui-spinner-inverse .stop1 {
+  stop-color: @spinner-inverse-stop1-stop-color;
+}
+
+.aui-spinner-spiral.aui-spinner-inverse .stop2 {
+  stop-color: @spinner-inverse-stop2-stop-color;
+}

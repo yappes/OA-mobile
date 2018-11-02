@@ -1,0 +1,192 @@
+@import '../var.less';
+@import '../base/mixin/mobile.less';
+@import '../base/mixin/setOnepx.less';
+@import '../base/mixin/text.less';
+@import '../base/mixin/setArrow.less';
+.aui-cells{
+    margin-top: @cells-margin-top;
+    background-color: @cell-background;
+    line-height: @cell-line-height;
+    font-size: @cell-font-size; //cell中间有效高度23px，跟客户端默认图标尺寸一致
+  
+    overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
+  
+    // onepx
+    position: relative;
+    &:before {
+        .setTopLine(@cell-border-color);
+    }
+    &:after {
+        .setBottomLine(@cell-border-color);
+    }
+  }
+
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+
+.aui-cell__bd{
+  flex: 1;
+}
+
+.aui-cell__ft{
+  text-align: right;
+  color: @TextColorGray;
+}
+
+.aui-cell_access{
+  .setTapColor();
+  color: inherit;
+  &:active {
+      background-color: #ECECEC;
+  }
+  .aui-cell__ft {
+      padding-right: 13px;
+      position: relative;
+      &:after {
+          content: " ";
+          .setArrow(right, @cell-default-arrow-width, @cell-default-arrow-color, @cell-default-arrow-border-width);
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          right: 2px;
+      }
+  }
+}
+
+.aui-media-box {
+    padding: 15px;
+    position: relative;
+    &:before {
+        .setTopLine(@LineColorLight);
+        left: 15px;
+    }
+    &:first-child {
+        &:before {
+            display: none
+        }
+    }
+
+    a&{
+        color:#000000;
+        .setTapColor();
+        &:active{
+            background-color:#ECECEC;
+        }
+    }
+}
+.aui-media-box__title {
+    font-weight: 400;
+    font-size: 17px;
+    .ellipsis();
+    word-wrap: break-word;
+    word-break: break-all;
+}
+.aui-media-box__desc {
+    color: @TextColorGray;
+    font-size: 13px;
+    line-height: 1.2;
+    .ellipsisLn(2);
+}
+.aui-media-box__info {
+    margin-top: 15px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    color: #CECECE;
+    line-height: 1em;
+    list-style: none;
+    overflow: hidden;
+}
+.aui-media-box__info__meta {
+    float: left;
+    padding-right: 1em;
+}
+.aui-media-box__info__meta_extra {
+    padding-left: 1em;
+    border-left: 1px solid #CECECE;
+}
+.aui-media-box_text {
+    .aui-media-box__title {
+        margin-bottom: 8px;
+    }
+}
+.aui-media-box_appmsg {
+    display: flex;
+    align-items: center;
+    .aui-media-box__hd {
+        margin-right: .8em;
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+    }
+    .aui-media-box__thumb {
+        width: 100%;
+        max-height: 100%;
+        vertical-align: top;
+    }
+    .aui-media-box__bd {
+        flex: 1;
+        min-width: 0;
+    }
+}
+.aui-media-box_small-appmsg {
+    padding: 0;
+    .aui-cells {
+        margin-top: 0;
+        &:before {
+            display: none;
+        }
+    }
+}
+// panel基础引用
+.aui-panel{
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    &:first-child {
+        margin-top: 0;
+    }
+
+    position: relative;
+    overflow: hidden;
+    &:before {
+        .setTopLine(@LineColorLight);
+    }
+    &:after {
+        .setBottomLine(@LineColorLight);
+    }
+}
+
+.aui-panel__hd{
+    padding: 14px 15px 10px;
+    color: @TextColorGray;
+    font-size: 13px;
+    position: relative;
+    &:after {
+        .setBottomLine(@LineColorLight);
+        left: 15px;
+    }
+}
+.aui-cell_link{
+    color: @LinkColorDefault;
+    font-size: 14px;
+  
+    // 由于aui-cell:first-child的:before为隐藏，所以这里要重新显示出来
+    &:first-child{
+        &:before{
+            display: block;
+        }
+    }
+  }

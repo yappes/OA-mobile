@@ -1,0 +1,24 @@
+@import '../var.less';
+@import '../icon/aui_icon_font.less';
+.aui-progress {
+    display: flex;
+    align-items: center;
+}
+
+.aui-progress__bar {
+    background-color: @progress-background;
+    height: @progress-height;
+    flex: 1;
+}
+
+.aui-progress__inner-bar {
+    width: 0;
+    height: 100%;
+    background-color: @progress-color;
+}
+
+.aui-progress__opr {
+    display: block;
+    margin-left: 15px;
+    font-size: 0;
+}

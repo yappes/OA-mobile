@@ -1,0 +1,13 @@
+{
+    "name": "ab-manager-store",
+    "version": "1.0.3",
+    "main": "index.js",
+    "files": [
+      "lib/store-manager.js",
+      "index.js"
+    ],
+    "modules": [{
+      "name": "Store",
+      "description": "自动化构建Vuex"
+    }]
+  }

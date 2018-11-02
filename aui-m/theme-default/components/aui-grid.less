@@ -1,0 +1,18 @@
+@import '../var.less';
+@import '../base/mixin/setOnepx.less';
+.aui-grid{
+    position: relative;
+    overflow: hidden;
+
+    &:before {
+        .setTopLine(@grid-border-color);
+    }
+    &:after {
+        .setLeftLine(@grid-border-color);
+    }
+}
+.aui-grid.aui-grid-no-lr-borders {
+    &:after {
+      display: none;
+    }
+  }

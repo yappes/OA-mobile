@@ -1,0 +1,102 @@
+{
+  "platformId": "",
+  "supports": ["android", "ios"],
+  "appId": "cn.com.agree.agreesdkruntime",
+  "appName": "AgreeSDKRuntime",
+  "versionName": "1.0.0",
+  "versionCode": "1",
+  "description": "Agree SDK Runtime",
+  "launchPath": "index.html",
+  "debugable": true,
+  "splashScreen": {
+    "autoClose": true,
+    "waiting": true,
+    "delay": 3000
+  },
+  "platforms": {
+    "ios": {
+      "icons": {},
+      "screen": {},
+      "certificate": {
+        "mobileprovision": "",
+        "password": "",
+        "p12": "",
+        "devices": "universal",
+        "frameworks": []
+      }
+    },
+    "android": {
+      "icons": {},
+      "screen": {},
+      "certificate": {
+        "keystoreFile": "",
+        "keystore_password": "123456",
+        "key_alias": "agree-release-key",
+        "key_password": "123456"
+      }
+    }
+  },
+  "preference": [
+    {
+      "name": "IDEEnableDebug",
+      "value": false
+    },
+    {
+      "name": "IDEConsolePort",
+      "value": "8000"
+    },
+    {
+      "name": "access",
+      "value": ["*"]
+    },
+    {
+      "name": "allowIntent",
+      "value": [
+        "http://*/*",
+        "https://*/*",
+        "tel:*",
+        "sms:*",
+        "mailto:*",
+        "geo:*",
+        "market:*"
+      ]
+    },
+    {
+      "name": "allowNavigation",
+      "value": ["*"]
+    },
+    {
+      "name": "AnyOfficeExceptionAddressList",
+      "value": [
+        "10.89.106.116",
+        "10.89.106.36",
+        "10.89.106.106",
+        "10.89.106.102"
+      ]
+    },
+    {
+      "name": "InetProxyType",
+      "value": "nomal"
+    },
+    {
+      "name": "AnyOfficeInetSocketAddressHostname",
+      "value": "59.39.176.136"
+    },
+    {
+      "name": "AnyOfficeInetSocketAddressPort",
+      "value": "10443"
+    },
+    {
+      "name": "absHttpIp",
+      "value": "192.9.63.248:50002"
+    },
+    {
+      "name": "AndroidWorkspaceFileLocation",
+      "value": "external"
+    },
+    {
+      "name": "updateType",
+      "value": "none"
+    }
+  ]
+}

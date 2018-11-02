@@ -1,0 +1,61 @@
+@import '../var.less';
+@import './aui-dialog.less';
+@import '../base/mixin/setOnepx.less';
+@import '../base/mixin/mobile.less';
+.aui-alert__hd {
+    padding: 1.3em @dialog-gap-width .5em;
+    &.with-no-content {
+        padding: 1.7em @dialog-gap-width;
+    }
+}
+.aui-alert__title {
+    font-weight: 400;
+    font-size: 18px;
+}
+.aui-alert__bd {
+    padding: 0 @dialog-gap-width .8em;
+    min-height: 40px;
+    font-size: 15px;
+    line-height: 1.3;
+    word-wrap: break-word;
+    word-break: break-all;
+    color: @TextColorGray;
+    &:first-child{
+        padding:2.7em 20px 1.7em;
+        color:#353535;
+    }
+}
+.aui-alert__ft {
+    position: relative;
+    line-height: 48px;
+    font-size: 18px;
+    display: flex;
+    &:after {
+        content: " ";
+        .setTopLine(@dialog-line-color);
+    }
+}
+.aui-alert__btn {
+    display: block;
+    flex: 1;
+    color: @dialog-line-color;
+    text-decoration: none;
+    .setTapColor();
+    &:active {
+        background-color: @dialog-link-activeBc;
+    }
+
+    position: relative;
+    &:after {
+        content: " ";
+        .setLeftLine(@dialog-line-color);
+    }
+    &:first-child {
+        &:after {
+            display: none;
+        }
+    }
+}
+.aui-alert__btn_primary {
+    color: @dialog-button-text-primary-color;
+}

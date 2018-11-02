@@ -1,0 +1,47 @@
+@import '../icon/aui_icon_font';
+@import '../var.less';
+@import './aui-icon.less';
+@import './aui-flexbox.less';
+@import './aui-flexbox-item.less';
+.aui-color-box {
+  text-align: center;
+}
+
+.aui-color-picker {
+  font-size: 0;
+}
+
+.aui-color-item {
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  position: relative
+}
+
+.aui-color-checked.aui-icon-success-no-circle:before {
+  color: @colorpicker-color-checked-before;
+}
+
+.aui-color-checked {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.aui-color-white {
+  border: 1px solid @colorpicker-color-white-border;
+}
+
+.aui-color-white .aui-color-checked:before {
+  color: @colorpicker-color-white-before;
+}
+
+.aui-color-picker-small .aui-color-checked:before {
+  font-size: 10px;
+}
+
+.aui-color-picker-middle .aui-color-checked:before {
+  font-size: 18px;
+}

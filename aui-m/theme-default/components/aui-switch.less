@@ -1,0 +1,127 @@
+@import '../var.less';
+@import '../base/mixin/text.less';
+@import './aui-inline-desc.less';
+@import '../base/mixin/setOnepx.less';
+.aui-cell_switch .aui-cell__ft {
+  font-size: 0;
+  position: relative;
+}
+
+input.aui-switch[disabled] {
+  opacity: @switch-disabled-opacity;
+}
+
+.agree-aui-switch.aui-cell_switch {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.agree-aui-switch-overlay {
+  width: 60px;
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  opacity: 0;
+}
+
+.aui-cell_switch{
+  padding-top: (@cell-height - @switch-height) / 2;
+  padding-bottom: (@cell-height - @switch-height) / 2;
+}
+.aui-switch{
+  appearance: none;
+}
+.aui-switch,
+.aui-switch-cp__box{
+  position: relative;
+  width: 52px;
+  height: @switch-height;
+  border: 1px solid #DFDFDF;
+  outline: 0;
+  border-radius: 16px;
+  box-sizing: border-box;
+  background-color: #DFDFDF;
+  transition: background-color .1s, border .1s;
+
+  &:before{
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50px;
+      height: @switch-height - 2;
+      border-radius: 15px;
+      background-color: #FDFDFD;
+      transition:transform .35s cubic-bezier(0.45, 1, 0.4, 1);
+  }
+  &:after{
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: @switch-height - 2;
+      height: @switch-height - 2;
+      border-radius: 15px;
+      background-color: #FFFFFF;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      transition:transform .35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
+  }
+}
+.aui-switch:checked,
+.aui-switch-cp__input:checked ~ .aui-switch-cp__box{
+  border-color: @switch-checked-border-color;
+  background-color: @switch-checked-bg-color;
+  &:before {
+      transform: scale(0);
+  }
+  &:after {
+      transform: translateX(20px);
+  }
+}
+
+// 兼容IE Edge的版本
+.aui-switch-cp__input{
+  position: absolute;
+  left: -9999px;
+}
+.aui-switch-cp__box{
+  display: block;
+}
+.aui-label{
+  display:block;
+  width:@cell-label-width;
+  .text_wrap();
+}
+.aui-cell__ft {
+  text-align: right;
+  color: @TextColorGray;
+}
+.aui-cell__bd{
+  flex: 1;
+}
+// cell基础引用
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+
+.aui-cell__bd{
+  flex: 1;
+}
+
+.aui-cell__ft{
+  text-align: right;
+  color: @TextColorGray;
+}

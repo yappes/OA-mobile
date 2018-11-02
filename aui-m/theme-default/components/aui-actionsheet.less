@@ -1,0 +1,121 @@
+@import '../var.less';
+@import '../base/mixin/setOnepx.less';
+.aui-actionsheet-menu-primary {
+  color: @actionsheet-label-primary-color;
+}
+.aui-actionsheet-menu-warn {
+  color: @actionsheet-label-warn-color;
+}
+.aui-actionsheet-menu-default {
+  color: @actionsheet-label-default-color;
+}
+.aui-actionsheet-menu-disabled {
+  color: @actionsheet-label-disabled-color;
+}
+.aui-actionsheet-mask-enter,
+.aui-actionsheet-mask-leave-active,
+.aui-android-actionsheet-enter,
+.aui-android-actionsheet-leave-active {
+  opacity: 0;
+}
+.aui-actionsheet-mask-leave-active,
+.aui-actionsheet-mask-enter-active,
+.aui-android-actionsheet-leave-active,
+.aui-android-actionsheet-enter-active {
+  transition: opacity 300ms!important;
+}
+
+.aui-actionsheet{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  transform: translate(0, 100%);
+  backface-visibility: hidden;
+  z-index: 5000;
+  width: 100%;
+  background-color: @BgColorDefault;
+  //slide up animation
+  transition: transform .3s;
+}
+.aui-actionsheet_toggle{
+  transform: translate(0, 0);
+}
+.aui-actionsheet__menu{
+  background-color: #FFFFFF;
+}
+.aui-actionsheet__cell{
+  position: relative;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 18px;
+  &:before {
+      .setTopLine(@cell-border-color);
+  }
+  &:active{
+      background-color: @BgColorActive;
+  }
+  &:first-child{
+      &:before{
+          display: none;
+      }
+  }
+}
+.aui-skin_android{
+  .aui-actionsheet {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      transform: translate(-50%, -50%);
+      //padding: 0 40px;
+      width: 274px;
+      box-sizing: border-box;
+      backface-visibility: hidden;
+      background: transparent;
+      //slide up animation
+      transition: transform .3s;
+  }
+  .aui-actionsheet__action{
+      display: none;
+  }
+  .aui-actionsheet__menu {
+      border-radius: @actionsheet-android-border-radius;
+      box-shadow: 0 6px 30px 0 rgba(0,0,0,.1);
+  }
+  .aui-actionsheet__cell {
+      padding: 13px 24px;
+      font-size: 16px;
+      line-height: 1.4;
+      text-align: left;
+      &:first-child {
+          border-top-left-radius: @actionsheet-android-border-radius;
+          border-top-right-radius: @actionsheet-android-border-radius;
+      }
+      &:last-child {
+          border-bottom-left-radius: @actionsheet-android-border-radius;
+          border-bottom-right-radius: @actionsheet-android-border-radius;
+      }
+  }
+}
+.aui-actionsheet__action{
+  margin-top: 6px;
+  background-color: #FFFFFF;
+}
+.aui-mask {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, .6);
+}
+
+.aui-mask_transparent{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}

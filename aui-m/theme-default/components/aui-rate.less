@@ -1,0 +1,44 @@
+@import '../var.less';
+.aui-rater {
+  text-align: left;
+  display: inline-block;
+  line-height: normal;
+}
+
+.aui-rater a {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  color: @rater-a-color;
+}
+
+.aui-rater a:last-child {
+  padding-right: 2px!important;
+  margin-right: 0px!important;
+}
+
+.aui-rater a:hover {
+  color: @rater-a-hover-color;
+}
+
+.aui-rater a.is-disabled {
+  color: @rater-a-disabled-color !important;
+  cursor: not-allowed;
+}
+
+.aui-rater-box {
+  position: relative;
+}
+
+.aui-rater-inner {
+  position: relative;
+  display: inline-block;
+}
+
+.aui-rater-outer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  overflow: hidden;
+}

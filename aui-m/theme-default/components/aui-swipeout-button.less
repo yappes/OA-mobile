@@ -1,0 +1,40 @@
+
+@import '../var.less';
+.aui-swipeout-button-box {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 0;
+  text-align: right;
+}
+.aui-swipeout-button-box-left {
+  text-align: left;
+}
+.aui-swipeout-button-box > div {
+  height: 100%;
+}
+.aui-swipeout-button {
+  height: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: @swipeout-button-font-color;
+  border: none;
+}
+.aui-swipeout-content {
+  position: relative;
+  background: @swipeout-content-bg-color;
+}
+.aui-swipeout-content.aui-swipeout-content-animated {
+  transition: transform 0.2s;
+}
+.aui-swipeout-button-primary {
+  background-color: @swipeout-button-primary-bg-color;
+}
+.aui-swipeout-button-warn {
+  background-color: @swipeout-button-warn-bg-color;
+}
+.aui-swipeout-button-default {
+  background-color: @swipeout-button-default-bg-color;
+}

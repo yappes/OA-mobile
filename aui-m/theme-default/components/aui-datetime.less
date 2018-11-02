@@ -1,0 +1,221 @@
+@import '../var.less';
+@import './aui-inline-desc.less';
+@import './aui-icon.less';
+@import '../base/mixin/mobile';
+@import '../base/mixin/setOnepx.less';
+@import '../base/mixin/setArrow.less';
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+.aui-cell-primary {
+  flex: 1;
+}
+.aui-cell__bd{
+  flex: 1;
+}
+.aui-cell__ft {
+  text-align: right;
+  color: @TextColorGray;
+}
+
+.aui-cell_access{
+  .setTapColor();
+  color: inherit;
+  &:active {
+      background-color: #ECECEC;
+  }
+  .aui-cell__ft {
+      padding-right: 13px;
+      position: relative;
+      &:after {
+          content: " ";
+          .setArrow(right, @cell-default-arrow-width, @cell-default-arrow-color, @cell-default-arrow-border-width);
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          right: 2px;
+      }
+  }
+}
+
+.aui-cell-placeholder {
+  color: @cell-placeholder-color;
+}
+.aui-cell-value {
+  color: @cell-value-color;
+}
+.scroller-component {
+  display: block;
+  position: relative;
+  height: 238px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.scroller-content {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: -1;
+}
+
+.scroller-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  margin: 0 auto;
+  width: 100%;
+  z-index: 3;
+  background-image: linear-gradient(to bottom, @datetime-scroller-mask-gradient-start, @datetime-scroller-mask-gradien-end),
+  linear-gradient(to top, @datetime-scroller-mask-gradient-start, @datetime-scroller-mask-gradien-end);
+  background-position: top, bottom;
+  background-size: 100% 102px;
+  background-repeat: no-repeat;
+}
+
+.scroller-item {
+  text-align: center;
+  font-size: 16px;
+  height: 34px;
+  line-height: 34px;
+  color: @datetime-scroller-item-color;
+}
+
+.scroller-indicator {
+  width: 100%;
+  height: 34px;
+  position: absolute;
+  left: 0;
+  top: 102px;
+  z-index: 3;
+  background-image: linear-gradient(to bottom, @datetime-scroller-indicator-gradient-start, @datetime-scroller-indicator-gradient-end, transparent, transparent),
+  linear-gradient(to top, @datetime-scroller-indicator-gradient-start, @datetime-scroller-indicator-gradient-end, transparent, transparent);
+  background-position: top, bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.dp-container {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+  background-color: @datetime-dp-container-background-color;
+  display: none;
+  transition: transform 0.3s ease;
+  transform: translateY(100%);
+}
+
+.dp-container-dialog {
+  position: fixed;
+  z-index: 1000000;
+  width: 40%;
+  height: 40%;
+  top: 30%;
+  left: 30%;
+  background-color: @datetime-dp-container-dialog-background-color;
+  text-align: center;
+  border-radius: 3px;
+  overflow: hidden;
+  display: none;
+  transition: transform 0.3s ease;
+  transform: translateY(100%);
+}
+.dp-mask {
+  z-index: 998;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in;
+  background-color: @datetime-dp-mask-background-color;
+  z-index: 9999;
+}
+
+.dp-header {
+  display: flex;
+  width: 100%;
+  box-align: center;
+  align-items: center;
+  background-image: linear-gradient(to bottom, @datetime-dp-header-gradient-start, @datetime-dp-header-gradient-end, transparent, transparent);
+  background-position: bottom;
+  background-size: 100% 1px;
+  background-repeat: no-repeat;
+}
+
+.dp-header .dp-item {
+  color: @datetime-header-item-font-color;
+  font-size: 16px;
+  height: 44px;
+  line-height: 44px;
+  cursor: pointer;
+}
+
+.dp-header .dp-item.dp-left {
+  color: @datetime-header-item-cancel-font-color;
+}
+
+.dp-header .dp-item.dp-right {
+  color: @datetime-header-item-confirm-font-color;
+}
+
+.dp-content {
+  display: flex;
+  width: 100%;
+  box-align: center;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.dp-header .dp-item,
+.dp-content .dp-item {
+  box-sizing: border-box;
+  flex: 1;
+}
+
+.aui-datetime {
+  color: @datetime-color;
+}
+
+.aui-datetime .aui-input-icon {
+  float: right;
+}
+
+.aui-datetime-cancel {
+  text-align: left;
+  padding-left: 15px;
+}
+.aui-datetime-confirm {
+  text-align: right;
+  padding-right: 15px;
+}
+.aui-datetime-clear {
+  text-align: center;
+}
+
+.dp-container {
+  &.aui-datetime-view {
+    position: static;
+    transition: none;
+    & .dp-header {
+      display: none;
+    }
+  }
+}

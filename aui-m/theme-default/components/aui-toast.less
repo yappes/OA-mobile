@@ -1,0 +1,117 @@
+@import './common/transition.less';
+@import '../icon/aui_icon_font';
+@import '../var.less';
+@import './common/transition.less';
+
+.aui-toast {
+  position: fixed;
+  z-index: @toast-z-index;
+  width: 7.6em;
+  min-height: 7.6em;
+  top: @toast-top;
+  left: 50%;
+  margin-left: -3.8em;
+  background: rgba(17,17,17,0.7);
+  text-align: center;
+  border-radius: 5px;
+  color: #FFFFFF;
+}
+.aui-icon_toast {
+  margin: 22px 0 0;
+  display: block;
+  &.aui-icon-success-no-circle{
+    &:before {
+        color: #FFFFFF;
+        font-size: 55px;
+    }
+  }
+  &.aui-loading{
+    margin:30px 0 0;
+    width:38px;
+    height:38px;
+    vertical-align: baseline;
+  }
+}
+
+.aui-toast__content {
+  margin: 0 0 15px;
+}
+
+.aui-mask_transparent{
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+}
+
+.aui-toast.aui-toast-top {
+  top: @toast-position-top-offset;
+}
+.aui-toast.aui-toast-bottom {
+  top: auto;
+  bottom: @toast-position-bottom-offset;
+  transform: translateX(-50%);
+}
+.aui-toast.aui-toast-middle {
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.aui-slide-from-top-enter, .aui-slide-from-top-leave-active {
+  opacity: 0;
+  transform: translateX(-50%) translateY(-100%)!important;
+}
+.aui-slide-from-bottom-enter, .aui-slide-from-bottom-leave-active {
+  opacity: 0;
+  transform: translateX(-50%) translateY(100%)!important;
+}
+.aui-slide-from-top-enter-active,
+.aui-slide-from-top-leave-active,
+.aui-slide-from-bottom-enter-active,
+.aui-slide-from-bottom-leave-active {
+  transition: all 400ms cubic-bezier(.36,.66,.04,1);
+}
+.aui-toast {
+  transform: translateX(-50%);
+  margin-left: 0!important;
+}
+.aui-toast.aui-toast_forbidden {
+  color: #F76260;
+}
+.aui-toast.aui-toast_forbidden .aui-toast__content {
+  margin-top: 10px;
+}
+.aui-toast.aui-toast_text{
+  min-height: 0;
+}
+.aui-toast_text .aui-toast__content {
+  margin: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 15px;
+}
+.aui-toast__content {
+  font-size: @toast-content-font-size;
+}
+.aui-loading_toast .aui-toast__content {
+  margin-top: 0;
+}
+.aui-toast_success .aui-icon_toast:before {
+  content: "\EA08";
+}
+.aui-toast_cancel .aui-icon_toast:before {
+  content: "\EA0D";
+}
+.aui-toast_forbidden .aui-icon_toast.aui-icon-success-no-circle:before {
+  content: "\EA0B";
+  color: #F76260;
+}
+.aui-fade-enter-active,.aui-fade-leave-active {
+  opacity: 1;
+  transition: opacity linear 0.2s;
+}
+
+.aui-fade-enter, .aui-fade-leave-to {
+  opacity: 0;
+}

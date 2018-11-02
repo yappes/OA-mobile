@@ -1,0 +1,118 @@
+@import '../var.less';
+@import '../base/mixin/mobile';
+@import './aui-inline-desc.less';
+@import '../icon/aui_icon_font.less';
+.aui-cells{
+  margin-top: @cells-margin-top;
+  background-color: @cell-background;
+  line-height: @cell-line-height;
+  font-size: @cell-font-size; //cell中间有效高度23px，跟客户端默认图标尺寸一致
+
+  overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
+
+  // onepx
+  position: relative;
+  &:before {
+      .setTopLine(@cell-border-color);
+  }
+  &:after {
+      .setBottomLine(@cell-border-color);
+  }
+}
+
+
+.aui-check__label {
+    .setTapColor();
+    &:active {
+        background-color: #ECECEC;
+    }
+}
+
+.aui-check{
+    position: absolute;
+    left: -9999em;
+}
+
+.aui-cells_checkbox{
+  .aui-cell__hd {
+    padding-right: @cell-inner-gap-h;
+  }
+  .aui-icon-checked {
+      &:before {
+          content: '\EA01';
+          color: #C9C9C9;
+          font-size: 23px;
+          display: block;
+      }
+  }
+}
+
+// method2 accessbility
+.aui-check {
+    // checkbox
+    .aui-cells_checkbox & {
+        &:checked {
+            & + .aui-icon-checked {
+                &:before {
+                    content: '\EA06';
+                    color: #09BB07;
+                }
+            }
+        }
+    }
+}
+
+.aui-icon-checked{
+    display: inline-block;
+    vertical-align: middle;
+    font: normal normal normal 14px/1 "aui";
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    &:before{
+        // 平滑升级
+        display: inline-block;
+        margin-left: .2em;
+        margin-right: .2em;
+    }
+}
+
+.aui-cells_checkbox .aui-check:checked + .aui-checklist-icon-checked:before {
+  color: @checklist-icon-active-color;
+}
+.aui-cells_checkbox > label > * {
+  pointer-events: none;
+}
+
+.aui-checklist-disabled .aui-checklist-icon-checked:before {
+  opacity: 0.5;
+}
+
+.aui-checklist-label-left {
+  flex-direction: row-reverse;
+}
+// cell基础引用
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+
+.aui-cell__bd{
+  flex: 1;
+}
+
+.aui-cell__ft{
+  text-align: right;
+  color: @TextColorGray;
+}

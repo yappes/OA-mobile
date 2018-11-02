@@ -1,0 +1,30 @@
+@import '../var.less';
+.aui-bg-blur {
+  z-index: -2;
+  opacity: 0;
+  position: absolute;
+  min-height: 100%;
+  display: block;
+  top: 0;
+  max-height: none;
+  /* Add this CSS to remove transparent border around the image */
+  left: -20%;
+  top: -20%;
+  width: 140%;
+  height: 140%;
+  transition: opacity linear 0.8s;
+}
+
+
+/*
+An element with this class is added by the plugin to provide an overlay above the blurred image
+It could drastically improve the appearance of the blurred image for content readability
+*/
+
+.aui-bg-blur-overlay {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, @blur-gradient-start 0%, @blur-gradient-end 100%);
+}

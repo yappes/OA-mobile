@@ -1,0 +1,47 @@
+@import './aui-inline-desc.less';
+@import '../base/mixin/text.less';
+@import '../base/mixin/setOnepx.less';
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+}
+  &:first-child {
+      &:before {
+          display: none;
+}
+  }
+  }
+.aui-cell__bd{
+  flex: 1;
+}
+.aui-label{
+  display:block;
+  width:@cell-label-width;
+  .text_wrap();
+}
+.aui-textarea {
+  display: block;
+  border: 0;
+  resize: none;
+  width: 100%;
+  color: inherit;
+  font-size: 1em;
+  line-height: inherit;
+  outline: 0;
+}
+
+.aui-textarea-counter{
+  color: @TextColorTips;
+  text-align: right;
+  .aui-cell_warn &{
+      color: @TextColorWarn;
+  }
+}
+.agree-aui-textarea.aui-cell  {
+  align-items: flex-start;
+}

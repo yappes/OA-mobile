@@ -1,0 +1,14 @@
+{
+    "name": "aui-m",
+    "description": "A vue2 components",
+    "version": "1.2.1-201804231110",
+    "author": "huang",
+    "private": true,
+    "dependencies": {
+        "vue": "^2.5.2",
+        "vuex": "^2.3.1",
+        "vuex-i18n": "^1.3.4",
+        "object-assign": "^4.1.1"
+    }
+  }
+  

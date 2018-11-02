@@ -1,0 +1,14 @@
+@import '../var.less';
+@import '../base/mixin/setOnepx.less';
+@import './aui-popup.less';
+@import './aui-cell.less';
+@import './aui-popup-header.less';
+@import './aui-inline-calendar.less';
+
+.aui-calendar {
+  position: relative;
+  &:before {
+    .setTopLine(@cell-border-color);
+    left: @cell-gap-h;
+  }
+}

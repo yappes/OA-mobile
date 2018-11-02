@@ -1,0 +1,45 @@
+@import '../var.less';
+@import './aui-button.less';
+@import '../icon/aui_icon_font.less';
+.aui-msg {
+    padding-top: @msg-padding-top;
+    text-align: center;
+}
+.aui-msg__icon-area {
+    margin-bottom: @msg-icon-gap;
+}
+.aui-msg__text-area {
+    margin-bottom: @msg-text-gap;
+    padding:0 20px;
+}
+.aui-msg__text-area a{
+    color:@LinkColorDefault;
+}
+.aui-msg__title {
+    margin-bottom: @msg-title-gap;
+    font-weight: 400;
+    font-size: 20px;
+}
+.aui-msg__desc {
+    font-size: 14px;
+    color: @TextColorGray;
+}
+.aui-msg__opr-area {
+    margin-bottom: @msg-opr-gap;
+}
+.aui-msg__extra-area {
+    margin-bottom: @msg-extra-area-gap;
+    font-size: 14px;
+    color: @TextColorGray;
+    a{color: @LinkColorDefault;}
+}
+
+@media screen and (min-height: @msg-extra-area-of-min-height) {
+    .aui-msg__extra-area {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+    }
+}

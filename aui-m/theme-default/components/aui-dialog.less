@@ -1,0 +1,72 @@
+@import '../var.less';
+.agree-aui-dialog-absolute .aui-dialog {
+    position: absolute
+}
+
+.aui-modal-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+  }
+.aui-modal-open-for-container {
+    overflow: hidden!important;
+}
+
+.aui-mask {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .6);
+}
+//aui-mask-transition
+.aui-mask-enter, .aui-mask-leave-active {
+  opacity: 0;
+}
+.aui-mask-leave-active, .aui-mask-enter-active {
+  transition: opacity 300ms;
+}
+.aui-loading-no-text .aui-toast {
+  min-height: 98px;
+}
+
+.aui-dialog {
+    position: fixed;
+    z-index: 5000;
+    width: 80%;
+    max-width: 300px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: @dialog-background-color;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+//aui-dialog-transition
+.aui-dialog-enter-active, .aui-dialog-leave-active {
+    opacity: 1;
+    transition-duration: 400ms;
+    transform: translate(-50%, -50%) scale(1)!important;
+    transition-property: transform, opacity!important;
+  }
+  .aui-dialog-leave-active {
+    transition-duration: 300ms;
+  }
+  .aui-dialog-enter {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.185)!important;
+  }
+  .aui-dialog-leave-active {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.85)!important;
+  }
+@media screen and (min-width: 1024px) {
+    .aui-dialog {
+        width: 35%;
+    }
+}

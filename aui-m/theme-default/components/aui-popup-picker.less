@@ -1,0 +1,111 @@
+@import './common/1px.less';
+@import './common/tap.less';
+@import './aui-inline-desc.less';
+@import './aui-picker.less';
+@import './aui-cell.less';
+@import './aui-popup.less';
+@import './aui-popup-header.less';
+@import './aui-flexbox.less';
+@import './aui-flexbox-item.less';
+@import '../var.less';
+.aui-cell-primary {
+  flex: 1;
+}
+.aui-cell-box {
+  position: relative;
+}
+
+.aui-cell_access{
+  .setTapColor();
+  color: inherit;
+  &:active {
+      background-color: #ECECEC;
+  }
+  .aui-cell__ft {
+      padding-right: 13px;
+      position: relative;
+      &:after {
+          content: " ";
+          .setArrow(right, @cell-default-arrow-width, @cell-default-arrow-color, @cell-default-arrow-border-width);
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          right: 2px;
+      }
+  }
+}
+
+.aui-label{
+  display:block;
+  width:@cell-label-width;
+  .text_wrap();
+}
+
+.aui-cell-box:not(:first-child):before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid @popup-picker-cell-box-before-border-top-color;
+  color: @popup-picker-cell-box-before-color;
+  transform-origin: 0 0;
+  transform: scaleY(0.5);
+  left: 15px;
+}
+
+.aui-popup-picker-header {
+  height: 44px;
+  color: @popup-picker-header-text-color;
+  background-color: @popup-picker-header-bg-color;
+  font-size: @popup-picker-header-font-size;
+  position: relative;
+  &:after {
+    .setBottomLine(@popup-picker-header-after-bottom-line-color);
+  }
+}
+
+.aui-popup-picker-value {
+  /* display: inline-block; */
+}
+
+.aui-popup-picker-header-menu {
+  text-align: left;
+  padding-left: 15px;
+  line-height: 44px;
+}
+
+.aui-popup-picker-header-menu-right {
+  text-align: right;
+  padding-right: 15px;
+}
+
+.aui-popup-picker-select {
+  width: 100%;
+  position: relative;
+}
+
+.aui-popup-picker-select-box.aui-cell__bd:after {
+  content: " ";
+  display: inline-block;
+  transform: rotate(45deg);
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: @popup-picker-cell-bd-after-border-color;
+  border-style: solid;
+  position: relative;
+  top: -2px;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
+}
+
+.aui-popup-picker-cancel {
+  color: @popup-picker-header-cancel-text-color;
+}
+
+.aui-popup-picker-placeholder {
+  color: @popup-picker-placeholder-color;
+}

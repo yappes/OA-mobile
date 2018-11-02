@@ -1,0 +1,107 @@
+@import '../var.less';
+@import '../base/mixin/mobile';
+.aui-uploader__hd{
+    display: flex;
+    // padding-bottom: @cell-gap-v;
+    align-items: center;
+}
+.aui-uploader__title{
+    flex: 1;
+}
+.aui-uploader__info{
+    color: @TextColorTips;
+}
+
+.aui-uploader__bd{
+    margin-bottom: @cell-gap-h - (@cell-gap-v + @uploader-file-spacing);
+    margin-right: -@uploader-file-spacing;
+    overflow: hidden;
+}
+.aui-uploader__files{
+    list-style: none;
+}
+.aui-uploader__file{
+    // float: left;
+    // margin-right: @uploader-file-spacing;
+    // margin-bottom: @uploader-file-spacing;
+    width: @uploader-size;
+    height: @uploader-size;
+    background: no-repeat center center;
+    background-size: cover;
+}
+.aui-uploader__file_status{
+    position: relative;
+    &:before{
+        content: " ";
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, .5);
+    }
+    .aui-uploader__file-content{
+        display: block;
+    }
+}
+.aui-uploader__file-content{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #FFFFFF;
+    .aui-icon-warn{
+        display: inline-block;
+    }
+}
+.aui-uploader__input-box{
+    // float:left;
+    position: relative;
+    // margin-right: @uploader-file-spacing;
+    // margin-bottom: @uploader-file-spacing;
+    width: @uploader-size - @uploader-border-width * 2;
+    height: @uploader-size - @uploader-border-width * 2;
+    border: @uploader-border-width solid @uploader-border-color;
+    &:before, &:after{
+        content: " ";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: @uploader-border-color;
+    }
+    &:before{
+        width: @uploader-border-width + 1;
+        height: @uploader-size / 2;
+    }
+    &:after{
+        width: @uploader-size / 2;
+        height: @uploader-border-width + 1;
+    }
+    &:active{
+        border-color: @uploader-active-border-color;
+        &:before, &:after{
+            background-color: @uploader-active-border-color;
+        }
+    }
+}
+
+.aui-uploader__input-box_after{
+    // float:left;
+    position: relative;
+    // margin-right: @uploader-file-spacing;
+    // margin-bottom: @uploader-file-spacing;
+    width: @uploader-size - @uploader-border-width * 2;
+    height: @uploader-size - @uploader-border-width * 2;
+}
+.aui-uploader__input{
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    .setTapColor();
+}

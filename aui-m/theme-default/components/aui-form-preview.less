@@ -1,0 +1,95 @@
+@import '../var.less';
+@import '../base/mixin/mobile';
+@import '../base/mixin/setOnepx.less';
+
+.aui-self-form-preview {
+  overflow: hidden;
+}
+.aui-form-preview{
+  position: relative;
+  background-color: #FFFFFF;
+  &:before{
+      .setTopLine(@cell-border-color);
+  }
+  &:after{
+      .setBottomLine(@cell-border-color);
+  }
+}
+.aui-form-preview__hd{
+  position: relative;
+  padding: @cell-gap-v @cell-gap-h;
+  text-align: right;
+  line-height: 2.5em;
+  &:after{
+      .setBottomLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  .aui-form-preview__value{
+      font-style: normal;
+      font-size: 1.6em;
+  }
+}
+.aui-form-preview__bd{
+  padding: @cell-gap-v @cell-gap-h;
+  font-size: .9em;
+  text-align: right;
+  color: @TextColorGray;
+  line-height: 2;
+}
+.aui-form-preview__ft{
+  position: relative;
+  line-height: 50px;
+  display: flex;
+  &:after {
+      .setTopLine(@dialog-line-color);
+  }
+}
+.aui-form-preview__item{
+  overflow: hidden;
+}
+.aui-form-preview__label{
+  float: left;
+  margin-right: 1em;
+  min-width: 4em;
+  color: @TextColorGray;
+  text-align: justify;
+  text-align-last: justify;
+}
+.aui-form-preview__value{
+  display: block;
+  overflow: hidden;
+  word-break:normal;
+  word-wrap: break-word;
+}
+.aui-form-preview__btn {
+  position: relative;
+  display: block;
+  flex: 1;
+  color: @dialog-line-color;
+  text-align: center;
+  .setTapColor();
+  button&{
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+      line-height: inherit;
+      font-size: inherit;
+  }
+  &:active {
+      background-color: @dialog-link-activeBc;
+  }
+  &:after {
+      .setLeftLine(@dialog-line-color);
+  }
+  &:first-child {
+      &:after {
+          display: none;
+      }
+  }
+}
+.aui-form-preview__btn_default {
+  color: @TextColorGray;
+}
+.aui-form-preview__btn_primary {
+  color: @form-preview-button-primary-color;
+}

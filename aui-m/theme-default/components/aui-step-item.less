@@ -1,0 +1,92 @@
+@import '../var.less';
+.aui-step-item {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+}
+
+.aui-step-item-with-tail {
+  flex: 1;
+}
+
+.aui-step-item-tail {
+  height: 1px;
+  position: absolute;
+  left: 0;
+  top: 12px;
+  padding: 0 0;
+  transition: all 0.4s ease 0s;
+}
+
+.aui-step-item-tail-finish {
+  background: @step-item-tail-finish-background none repeat scroll 0 0;
+}
+
+.aui-step-item-tail-process,
+.aui-step-item-tail-wait {
+  background: @step-item-tail-wait-background none repeat scroll 0 0;
+}
+
+.aui-step-item-icon {
+  width: 22px;
+  height: 22px;
+  display: inline-block;
+  text-align: center;
+}
+
+.aui-step-item-checked::before {
+  font-size: 15px!important;
+  line-height: 22px;
+  margin: 0!important;
+  transform: translateY(-4px);
+}
+
+.aui-step-item-title {
+  font-size: 0.8rem;
+}
+
+.aui-step-item-head {
+  position: relative;
+  display: inline-block;
+  margin-right: -4px;
+
+  .aui-step-item-head-inner {
+    width: 22px;
+    height: 22px;
+    line-height: 22px;
+    border-radius: 99px;
+    text-align: center;
+    font-size: 14px;
+    transition: all 0.4s ease 0s;
+    background: @step-item-head-inner-background none repeat scroll 0 0;
+  }
+}
+
+.aui-step-item-head-finish .aui-step-item-head-inner {
+  border: 1px solid @step-item-head-finish-inner-border-color;
+  color: @step-item-head-finish-inner-color;
+}
+
+.aui-step-item-head-process .aui-step-item-head-inner {
+  border: 1px solid @step-item-head-process-inner-border-color;
+  color: @step-item-head-process-inner-color;
+  background: @step-item-head-process-inner-background none repeat scroll 0 0;
+}
+
+.aui-step-item-head-wait .aui-step-item-head-inner {
+  border: 1px solid @step-item-head-wait-inner-border-color;
+  color: @step-item-head-wait-inner-color;
+}
+
+.aui-step-item-main {
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+  color: @step-item-main-color;
+  padding-left: 5px;
+}
+
+.aui-step-item-main-process {
+  font-weight: bold;
+  color: @step-item-main-process-color;
+}

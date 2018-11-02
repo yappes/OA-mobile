@@ -1,0 +1,95 @@
+@import '../var.less';
+@import '../base/mixin/setOnepx.less';
+@import '../base/mixin/setArrow.less';
+@import '../base/mixin/text.less';
+@import '../base/mixin/mobile.less';
+// cell基础引用
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+
+.aui-label{
+  display:block;
+  width:@cell-label-width;
+  .text_wrap();
+}
+
+.aui-cell__bd{
+  flex: 1;
+}
+
+.aui-cell__ft{
+  text-align: right;
+  color: @TextColorGray;
+}
+.aui-cell_access{
+  .setTapColor();
+  color: inherit;
+  &:active {
+      background-color: #ECECEC;
+  }
+  .aui-cell__ft {
+      padding-right: 13px;
+      position: relative;
+      &:after {
+          content: " ";
+          .setArrow(right, @cell-default-arrow-width, @cell-default-arrow-color, @cell-default-arrow-border-width);
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          right: 2px;
+      }
+  }
+}
+
+.aui-cell_link{
+    color: @LinkColorDefault;
+    font-size: 14px;
+  
+    // 由于aui-cell:first-child的:before为隐藏，所以这里要重新显示出来
+    &:first-child{
+        &:before{
+            display: block;
+        }
+    }
+  }
+//panel
+.aui-panel{
+    background-color: #FFFFFF;
+    margin-top: 10px;
+    &:first-child {
+        margin-top: 0;
+    }
+
+    position: relative;
+    overflow: hidden;
+    &:before {
+        .setTopLine(@LineColorLight);
+    }
+    &:after {
+        .setBottomLine(@LineColorLight);
+    }
+}
+
+.aui-panel__hd{
+    padding: 14px 15px 10px;
+    color: @TextColorGray;
+    font-size: 13px;
+    position: relative;
+    &:after {
+        .setBottomLine(@LineColorLight);
+        left: 15px;
+    }
+}

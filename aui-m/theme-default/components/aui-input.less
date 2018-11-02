@@ -1,0 +1,81 @@
+@import '../var.less';
+@import '../base/mixin/mobile.less';
+@import '../base/mixin/text.less';
+@import './aui-inline-desc.less';
+@import './aui-icon.less';
+@import './aui-toast.less';
+
+.aui-cell{
+    padding: @cell-gap-v @cell-gap-h;
+    position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+    display: flex;
+    align-items: center;
+    &:before {
+        .setTopLine(@cell-border-color);
+        left: @cell-gap-h;
+}
+    &:first-child {
+        &:before {
+            display: none;
+}
+    }
+    }
+.aui-cell__bd{
+    flex: 1;
+}
+.aui-cell__ft {
+    text-align: right;
+    color: @TextColorGray;
+}
+.aui-label{
+    display:block;
+    width:@cell-label-width;
+    .text_wrap();
+}
+.aui-input {
+      width: 100%;
+      border: 0;
+      outline: 0;
+      -webkit-appearance: none;
+      background-color: transparent;
+      font-size: inherit;
+      color: inherit;
+      height: unit(@cell-line-height, em);
+      line-height: @cell-line-height;
+  
+      // hides the spin-button
+      &::-webkit-outer-spin-button, &::-webkit-inner-spin-button{
+          -webkit-appearance: none;
+          margin: 0;
+      }
+}
+  
+.agree-aui-input .agree-aui-input-placeholder-right input::-webkit-input-placeholder {
+  text-align: right;
+}
+
+.agree-aui-input .agree-aui-input-placeholder-center input::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.agree-aui-input .aui-input-icon {
+  font-size: 21px;
+}
+
+.agree-aui-input-icon.aui-icon-warn:before,
+.aui-input-icon.aui-icon-success:before {
+  font-size: 21px;
+}
+
+.agree-aui-input .aui-icon {
+  padding-left: 5px;
+}
+
+.agree-aui-input.aui-cell_vcode {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+}
+.agree-aui-input.disabled {
+    color: rgba(0, 0, 0, 0.3);
+  }

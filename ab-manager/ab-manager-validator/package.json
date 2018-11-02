@@ -1,0 +1,15 @@
+{
+    "name": "ab-manager-validator",
+    "version": "1.0.5",
+    "main": "index.js",
+    "files": [
+      "lib/validator-manager.js",
+      "lib/rules.js",
+      "lib/utils.js",
+      "index.js"
+    ],
+    "modules": [{
+      "name": "ValidatorManager",
+      "description": "交易校验管理器"
+    }]
+  }

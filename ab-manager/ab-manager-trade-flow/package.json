@@ -1,0 +1,16 @@
+{
+  "name": "ab-manager-trade-flow",
+  "version": "1.0.5",
+  "main": "index.js",
+  "files": [
+    "lib/trade-flow-manager.js",
+    "index.js"
+  ],
+  "dependenciesDescription": {
+    "ab-ui-page-manager-vue": "^5.0"
+  },
+  "modules": [{
+    "name": "TradeFlowManager",
+    "description": "交易流程管理器。主要控制流程的提交、中止、返回等功能"
+  }]
+}

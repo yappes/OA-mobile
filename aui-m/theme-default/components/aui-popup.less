@@ -1,0 +1,86 @@
+@import '../var.less';
+.aui-popup-dialog {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: @popup-background-color;
+  z-index: 501;
+  transition-property: transform;
+  transition-duration: 300ms;
+  max-height: 100%;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.aui-popup-dialog.aui-popup-left {
+  width: auto;
+  height: 100%;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+}
+
+.aui-popup-dialog.aui-popup-right {
+  width: auto;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: auto;
+  left: auto;
+}
+
+.aui-popup-dialog.aui-popup-top {
+  width: 100%;
+  top: 0;
+  right: auto;
+  bottom: auto;
+  left: 0;
+}
+
+.aui-modal-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
+.aui-modal-open-for-container {
+  overflow: hidden!important;
+}
+.aui-popup-mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: @popup-mask-background;
+  opacity: 0;
+  tap-highlight-color: @popup-mask-tap-highlight-color;
+  z-index: -1;
+  transition: opacity 400ms;
+}
+
+.aui-popup-mask.aui-popup-show {
+  opacity: 1;
+}
+
+.aui-popup-animate-bottom-enter,
+.aui-popup-animate-bottom-leave-active {
+  transform: translate3d(0, 100%, 0);
+}
+
+.aui-popup-animate-left-enter,
+.aui-popup-animate-left-leave-active {
+  transform: translate3d(-100%, 0, 0);
+}
+
+.aui-popup-animate-right-enter,
+.aui-popup-animate-right-leave-active {
+  transform: translate3d(100%, 0, 0);
+}
+
+.aui-popup-animate-top-enter,
+.aui-popup-animate-top-leave-active {
+  transform: translate3d(0, -100%, 0);
+}

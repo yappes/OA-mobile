@@ -1,0 +1,37 @@
+@FontEN:-apple-system-font,"Helvetica Neue";
+@FontCN:"PingFang SC","Hiragino Sans GB","Microsoft YaHei";
+@FontSans:sans-serif;
+@FontDefault:@FontEN,@FontSans;
+@import './base/mixin/mobile';
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  line-height: 1.6;
+  font-family: @FontDefault;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a img {
+  border: 0;
+}
+
+a {
+  text-decoration: none;
+  .setTapColor();
+}
+/** env = windows **/
+::-webkit-input-placeholder {
+  font-family: @FontDefault;
+}
+
+/** prevent default menu callout **/
+a {
+  -webkit-touch-callout: none;
+}

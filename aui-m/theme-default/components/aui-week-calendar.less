@@ -1,0 +1,58 @@
+@import '../var.less';
+@import 'aui-flexbox.less';
+@import 'aui-flexbox-item.less';
+@import 'aui-swiper.less';
+@import 'aui-swiper-item.less';
+.aui-week-calendar {
+  background-color: @week-calendar-bg;
+}
+.aui-week-calendar-day-item, .aui-week-calendar-date-item {
+  text-align: center;
+}
+.aui-week-calendar-day-item {
+  color: @week-calendar-header-day-item-color;
+}
+.aui-week-calendar-each-day-box {
+  padding: 5px 0;
+}
+.aui-week-calendar-each-day-box {
+  position: relative;
+}
+.aui-week-calendar-each-day {
+  position: relative;
+  background-color: transparent;
+  border: 1px solid transparent;
+  display: inline-block;
+  font-size: 16px;
+  color: @week-calendar-each-date-item-color;
+  width: @week-calendar-each-date-item-size;
+  height: @week-calendar-each-date-item-size;
+  line-height: @week-calendar-each-date-item-line-height;
+  text-align: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.aui-week-calendar-is-selected .aui-week-calendar-each-day {
+  background-color: @week-calendar-selected-item-bg-color;
+  color: @week-calendar-selected-item-text-color;
+}
+.aui-calendar-dot {
+  display: block;
+  text-align: center;
+  width: 5px;
+  height: 5px;
+  position: absolute;
+  left: 50%;
+  bottom: 0px;
+  margin-left: -2.5px;
+  background-color: @week-calendar-dot-color;
+  border-radius: 50%;
+}
+.aui-week-calendar-top-tip {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  font-size: 20px;
+  transform: scale(0.5);
+  transform-origin: top left;
+}

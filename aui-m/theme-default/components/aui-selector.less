@@ -1,0 +1,87 @@
+@import '../var.less';
+@import '../base/mixin/setArrow.less';
+@import '../base/mixin/text.less';
+@import '../base/mixin/setOnepx.less';
+.aui-selector-no-padding {
+  padding-left: 0;
+}
+
+.aui-selector.aui-cell_select {
+  padding: 0;
+}
+
+.aui-selector.aui-cell_select-after {
+  padding-left: 15px;
+}
+
+.aui-selector-readonly {
+  width: 100%;
+}
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+
+.aui-cell__bd{
+  flex: 1;
+}
+
+.aui-cell__ft {
+  text-align: right;
+  color: @TextColorGray;
+}
+.aui-label{
+  display:block;
+  width:@cell-label-width;
+  .text_wrap();
+}
+
+.aui-cell_select {
+  padding: 0;
+  .aui-select {
+      padding-right: 30px;
+  }
+  .aui-cell__bd{
+      &:after{
+          content: " ";
+          .setArrow(right, 6px, #C8C8CD, 2px);
+
+          position: absolute;
+          top: 50%;
+          right: @cell-gap-h;
+          margin-top: -4px;
+      }
+  }
+}
+
+.aui-cell_select-after {
+  padding-left:@cell-gap-h;
+  .aui-select {
+      padding-left:0;
+  }
+}
+
+.aui-select {
+  -webkit-appearance: none;
+  border: 0;
+  outline: 0;
+  background-color: transparent;
+  width: 100%;
+  font-size: inherit;
+  height: @cell-height;
+  line-height: @cell-height;
+  position: relative;
+  z-index: 1;
+  padding-left: @cell-gap-h;
+}

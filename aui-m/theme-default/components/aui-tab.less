@@ -1,0 +1,195 @@
+@prefixClass: aui-tab;
+@easing-in-out: cubic-bezier(0.35, 0, 0.25, 1);
+@effect-duration: .3s;
+@import '../var.less';
+.@{prefixClass} {
+
+  &-ink-bar {
+    position: absolute;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: @tab-bar-active-color;
+    text-align: center;
+
+    &-transition-forward {
+      transition: right @effect-duration @easing-in-out,
+      left @effect-duration @easing-in-out @effect-duration * 0.3;
+    }
+    &-transition-backward {
+      transition: right @effect-duration @easing-in-out @effect-duration * 0.3,
+      left @effect-duration @easing-in-out;
+    }
+  }
+
+}
+
+.aui-tab-bar-top .@{prefixClass} {
+  &-ink-bar {
+    top: 0;
+  }
+}
+
+.aui-tab {
+  display: flex;
+  background-color: @tab-background-color;
+  height: 44px;
+  position: relative;
+}
+
+.aui-tab button {
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: 0 0;
+  appearance: none;
+}
+
+.aui-tab .aui-tab-item {
+  display: block;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: linear-gradient(180deg, @tab-tab-item-background-gradient-start, @tab-tab-item-background-gradient-mid, @tab-tab-item-background-gradient-end) bottom left no-repeat;
+  background-size: 100% 1px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 44px;
+  color: @tab-text-default-color;
+}
+
+.aui-tab .aui-tab-item.aui-tab-selected {
+  color: @tab-text-active-color;
+  border-bottom: 3px solid @tab-text-active-color;
+}
+
+.aui-tab-bar-top {
+  .aui-tab .aui-tab-item {
+    background: linear-gradient(180deg, #e5e5e5, #e5e5e5, rgba(229, 229, 229, 0)) top left no-repeat;
+    background-size: 100% 1px;
+  }
+  .aui-tab .aui-tab-item.aui-tab-selected {
+    border-bottom: none;
+    border-top: 3px solid @tab-text-active-color;
+  }
+}
+
+.aui-tab .aui-tab-item.aui-tab-disabled {
+  color: @tab-text-disabled-color;
+}
+
+.aui-tab.aui-tab-no-animate .aui-tab-item.aui-tab-selected {
+  background: 0 0;
+}
+
+/** when=prop:custom-bar-width **/
+.aui-tab-bar-inner {
+  display: block;
+  background-color: @tab-text-active-color;
+  margin: auto;
+  height: 100%;
+  transition: width 0.3s @easing-in-out;
+}
+
+.aui-tab-item-badge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: 30px;
+  margin: auto 0 auto 4px;
+  line-height: 18px;
+  font-size: 11px;
+  background-clip: padding-box;
+  vertical-align: middle;
+}
+
+.aui-tab-item-badge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: 30px;
+  margin: auto 0 auto 4px;
+  line-height: 18px;
+  font-size: 11px;
+  background-clip: padding-box;
+  vertical-align: middle;
+}
+
+.aui-tab-item-badge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: 30px;
+  margin: auto 0 auto 4px;
+  line-height: 18px;
+  font-size: 11px;
+  background-clip: padding-box;
+  vertical-align: middle;
+}
+
+.aui-tab-item-badge {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 18px;
+  min-width: 18px;
+  padding: 0 4px;
+  border-radius: 30px;
+  margin: auto 0 auto 4px;
+  line-height: 18px;
+  font-size: 11px;
+  background-clip: padding-box;
+  vertical-align: middle;
+}
+
+.aui-tab-wrap {
+  position: relative;
+  padding-top: 44px;
+}
+
+.aui-tab-container {
+  height: 44px;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  position: absolute;
+}
+
+.scrollable {
+  overflow-y: hidden;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 17px;
+}
+
+.scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollable .aui-tab-ink-bar {
+  bottom: 17px;
+  position: absolute;
+}
+
+.scrollable .aui-tab-item {
+  flex: 0 0 22%;
+}

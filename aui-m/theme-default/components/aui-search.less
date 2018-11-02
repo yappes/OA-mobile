@@ -1,0 +1,222 @@
+@import '../icon/aui_icon_font';
+@import '../var.less';
+@import '../base/mixin/setOnepx.less';
+
+.agree-aui-search-box {
+  width: 100%;
+}
+.aui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+  .aui-search-bar__input {
+      padding: 4px 0;
+      width: 100%;
+      height: 20/14em;
+      border: 0;
+      font-size: 14px;
+      line-height: 20/14em;
+      box-sizing: content-box;
+      background: transparent;
+      &:focus {
+          outline: none;
+      }
+  }
+  .aui-icon-search {
+      position: absolute;
+      left: 10px;
+      top: 0;
+      line-height: 28px;
+  }
+  .aui-icon-clear {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 0 10px;
+      line-height: 28px;
+  }
+}
+.aui-search-bar__form {
+  position: relative;
+  flex: auto;
+  background-color: #EFEFF4;
+  &:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      top:0;
+      width: 200%;
+      height: 200%;
+      transform: scale(.5);
+      transform-origin: 0 0;
+      border-radius: 10px;
+      border: 1px solid #E6E6EA;
+      box-sizing: border-box;
+      background: #FFFFFF;
+  }
+}
+.aui-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  display: flex;
+  box-sizing: border-box;
+  background-color: @search-bg-color;
+  &:before {
+      .setTopLine(#D7D6DC);
+  }
+  &:after {
+      .setBottomLine(#D7D6DC);
+  }
+  &.aui-search-bar_focusing{
+      .aui-search-bar__cancel-btn{
+          display: block;
+      }
+      .aui-search-bar__label{
+          display: none;
+      }
+  }
+}
+.aui-search-fixed {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 5;
+  background: @search-fixed-background;
+  backdrop-filter: blur(5px);
+}
+
+.aui-cell_primary{
+  align-items: flex-start;
+}
+.aui-cells{
+  margin-top: @cells-margin-top;
+  background-color: @cell-background;
+  line-height: @cell-line-height;
+  font-size: @cell-font-size; //cell中间有效高度23px，跟客户端默认图标尺寸一致
+
+  overflow: hidden; //因为每个cell的border使用before元素left搞的，ie下伪元素的containing block估计跟标准不同，在cell上用oh不生效
+
+  // onepx
+  position: relative;
+  &:before {
+      .setTopLine(@cell-border-color);
+  }
+  &:after {
+      .setBottomLine(@cell-border-color);
+  }
+}
+.aui-cell{
+  padding: @cell-gap-v @cell-gap-h;
+  position: relative; //这个是为了兼容cells容器onepx方案被before挡住而做的
+  display: flex;
+  align-items: center;
+  &:before {
+      .setTopLine(@cell-border-color);
+      left: @cell-gap-h;
+  }
+  &:first-child {
+      &:before {
+          display: none;
+      }
+  }
+}
+.aui-cell_access{
+  .setTapColor();
+  color: inherit;
+  &:active {
+      background-color: #ECECEC;
+  }
+  .aui-cell__ft {
+      padding-right: 13px;
+      position: relative;
+      &:after {
+          content: " ";
+          .setArrow(right, @cell-default-arrow-width, @cell-default-arrow-color, @cell-default-arrow-border-width);
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          right: 2px;
+      }
+  }
+}
+.aui-cell__bd{
+  flex: 1;
+}
+.aui-cells.aui-search_show {
+  margin-top: 0!important;
+  overflow-y: auto;
+  position: fixed;
+  width: 100%;
+  max-height: 100%;
+
+  .aui-cell:last-child {
+    margin-bottom: 150px;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::after {
+    display: none;
+  }
+}
+
+.aui-search-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 90%;
+  height: 100%;
+  z-index: 5;
+}
+
+.aui-search-bar__label {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  z-index: 2;
+  border-radius: 3px;
+  text-align: center;
+  color: @search-placeholder-font-color;
+  background: #FFFFFF;
+  span {
+      display: inline-block;
+      font-size: 14px;
+      vertical-align: middle;
+  }
+  .aui-icon-search {
+      margin-right: 5px;
+  }
+}
+.aui-search-bar__cancel-btn {
+  display: none;
+  margin-left: 10px;
+  line-height: 28px;
+  color: @search-cancel-font-color;
+  white-space: nowrap;
+}
+.aui-search-bar__cancel-btn {
+  display: none;
+  margin-left: 10px;
+  line-height: 28px;
+  color: @search-cancel-font-color;
+  white-space: nowrap;
+}
+.aui-search-bar__input:not(:valid) ~ .aui-icon-clear {
+  display: none;
+}
+
+//干掉input[search]默认的clear button
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}

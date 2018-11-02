@@ -1,0 +1,86 @@
+@swipernamespace: aui;
+@import '../var.less';
+.@{swipernamespace}-slider {
+  overflow: hidden;
+  position: relative;
+
+  > .@{swipernamespace}-indicator, .@{swipernamespace}-indicator-right {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+
+    > a {
+      float: left;
+      margin-left: 6px;
+
+      > .@{swipernamespace}-icon-dot {
+        display: inline-block;
+        vertical-align: middle;
+        width: 6px;
+        height: 6px;
+        border-radius: 3px;
+        background-color: @swiper-icon-dot-background-color;
+      }
+      > .@{swipernamespace}-icon-dot.active {
+        background-color: @swiper-indicator-active-color;
+      }
+
+    }
+  }
+
+  > .@{swipernamespace}-indicator-center {
+    right: 50%;
+    transform: translateX(50%)
+  }
+
+  > .@{swipernamespace}-indicator-left {
+    left: 15px;
+    right: auto;
+  }
+
+  > .@{swipernamespace}-swiper {
+    overflow: hidden;
+    position: relative;
+
+    > .@{swipernamespace}-swiper-item {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+
+      > a {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        > .@{swipernamespace}-img {
+          display: block;
+          width: 100%;
+          height: 100%;
+          background: center center no-repeat;
+          background-size: cover;
+        }
+
+        > .@{swipernamespace}-swiper-desc {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: 1.4em;
+          font-size: 16px;
+          padding: 20px 50px 12px 13px;
+          margin: 0;
+          background-image: linear-gradient(to bottom, @swiper-item-a-swiper-desc-background-gradient-start 0, @swiper-item-a-swiper-desc-background-gradient-end 100%);
+          color: @swiper-item-a-swiper-desc-color;
+          text-shadow: 0 1px 0 @swiper-item-a-swiper-desc-text-shadow;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          word-wrap: normal;
+        }
+
+      }
+    }
+  }
+}

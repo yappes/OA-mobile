@@ -1,0 +1,13 @@
+{
+  "name": "ab-manager-pages",
+  "version": "1.0.5",
+  "main": "index.js",
+  "files": [
+    "lib/page-manager.js",
+    "index.js"
+  ],
+  "modules": [{
+    "name": "PageManager",
+    "description": "交易页面管理器"
+  }]
+}

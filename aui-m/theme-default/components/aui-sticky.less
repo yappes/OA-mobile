@@ -1,0 +1,23 @@
+@import '../var.less';
+.aui-sticky-box {
+  z-index: @sticky-zindex;
+}
+
+.aui-sticky {
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+.aui-fixed {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transform: translate3d(0, 0, 0);
+}
+.aui-sticky-fill {
+  display: none;
+}
+.aui-fixed + .aui-sticky-fill {
+  display: block;
+}
